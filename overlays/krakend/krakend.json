@@ -1,15 +1,42 @@
 {
-  "version": 2,
-  "name": "Turreta KrakenD - API Gateway",
+  "version": 3,
+  "name": "My KrakenD API",
   "port": 8080,
-  "endpoints": [{
-      "endpoint": "/myendpoint",
+  "endpoints": [
+    {
+      "endpoint": "/example",
       "method": "GET",
-      "backend": [{
-          "url_pattern": "/todos/1",
-          "host": [
-              "https://jsonplaceholder.typicode.com"
-          ]
-      }]
-  }]
+      "backend": [
+        {
+          "url": "http://example.com/api",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/health",
+      "method": "GET",
+      "backend": [
+        {
+          "url": "http://example.com/health",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/dummy",
+      "method": "GET",
+      "backend": [
+        {
+          "url": "https://jsonplaceholder.typicode.com/todos/1",
+          "method": "GET"
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "logger": {
+      "level": "DEBUG"
+    }
+  }
 }
