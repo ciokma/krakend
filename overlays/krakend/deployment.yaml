@@ -34,3 +34,7 @@ spec:
         env:
         - name: KRAKEND_PORT
           value: "8080"
+      volumes:
+      - name: krakend-config
+        configMap:
+          name: krakend-config
