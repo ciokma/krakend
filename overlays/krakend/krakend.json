@@ -8,7 +8,7 @@
       "method": "GET",
       "backend": [
         {
-          "url": "http://example.com/api",
+          "url": "https://jsonplaceholder.typicode.com/todos/1",
           "method": "GET"
         }
       ]
@@ -18,7 +18,7 @@
       "method": "GET",
       "backend": [
         {
-          "url": "http://example.com/health",
+          "url": "https://jsonplaceholder.typicode.com/todos/1",
           "method": "GET"
         }
       ]
