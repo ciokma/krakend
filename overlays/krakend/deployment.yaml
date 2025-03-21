@@ -21,6 +21,9 @@ spec:
         - containerPort: 8080
         command: [ "/usr/bin/krakend" ]
         args: [ "run", "-d", "-c", "/etc/krakend/krakend.json", "-p", "8080" ]
+        volumeMounts:
+        - name: krakend-config
+          mountPath: /etc/krakend
         securityContext:
           allowPrivilegeEscalation: false
           runAsNonRoot: true
