@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana
+  name: krakend
   namespace: devops-monitoring
   labels:
-    app.kubernetes.io/name: grafana
+    app.kubernetes.io/name: krakend
 spec:
   type: NodePort
   ipFamilies:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
-      nodePort: 30002
+      nodePort: 30010
   sessionAffinity: None
   internalTrafficPolicy: Cluster
   selector:
-    app.kubernetes.io/name: grafana
+    app.kubernetes.io/name: krakend
