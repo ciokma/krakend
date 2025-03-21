@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krakend
+  namespace: krakend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krakend
+  template:
+    metadata:
+      labels:
+        app: krakend
+    spec:
+      containers:
+      - name: krakend
+        image: devopsfaith/krakend:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: krakend-config
+          mountPath: /etc/krakend
+        args:
+        - "run"
+        - "-c"
+        - "/etc/krakend/krakend.json"
+      volumes:
+      - name: krakend-config
+        configMap:
+          name: krakend-config

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: devops-monitoring
+  labels:
+    app.kubernetes.io/name: grafana
+spec:
+  type: NodePort
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      nodePort: 30002
+  sessionAffinity: None
+  internalTrafficPolicy: Cluster
+  selector:
+    app.kubernetes.io/name: grafana
