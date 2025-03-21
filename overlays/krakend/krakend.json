@@ -1,44 +1,43 @@
 {
-    "$schema": "https://raw.githubusercontent.com/devopsfaith/krakend-ce/master/schema/v3.json",
-    "version": 3,
-    "name": "My KrakenD API",
-    "port": 8080,
-    "endpoints": [
-      {
-        "endpoint": "/example",
-        "method": "GET",
-        "backend": [
-          {
-            "url": "http://example.com/api",
-            "method": "GET"
-          }
-        ]
-      },
-      {
-        "endpoint": "/health",
-        "method": "GET",
-        "backend": [
-          {
-            "url": "http://example.com/health",
-            "method": "GET"
-          }
-        ]
-      },
-      {
-        "endpoint": "/dummy",
-        "method": "GET",
-        "backend": [
-          {
-            "url": "https://jsonplaceholder.typicode.com/todos/1",
-            "method": "GET"
-          }
-        ]
-      }
-    ],
-    "extra_config": {
-      "logger": {
-        "level": "DEBUG"
-      }
+  "$schema": "https://raw.githubusercontent.com/devopsfaith/krakend-ce/master/schema/v3.json",
+  "version": 3,
+  "name": "My KrakenD API",
+  "port": 8080,
+  "endpoints": [
+    {
+      "endpoint": "/example",
+      "method": "GET",
+      "backend": [
+        {
+          "url": "http://example.com/api",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/health",
+      "method": "GET",
+      "backend": [
+        {
+          "url": "http://example.com/health",
+          "method": "GET"
+        }
+      ]
+    },
+    {
+      "endpoint": "/dummy",
+      "method": "GET",
+      "backend": [
+        {
+          "url": "https://jsonplaceholder.typicode.com/todos/1",
+          "method": "GET"
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "logger": {
+      "level": "DEBUG"
     }
   }
-  
+}
