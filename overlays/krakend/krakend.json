@@ -1,42 +1,38 @@
 {
+  "$schema": "https://www.krakend.io/schema/v2.9/krakend.json",
   "version": 3,
   "name": "My KrakenD API",
   "port": 8080,
   "endpoints": [
     {
-      "endpoint": "/example",
-      "method": "GET",
-      "backend": [
-        {
-          "url": "https://jsonplaceholder.typicode.com/todos/1",
-          "method": "GET"
+      "endpoint": "/limited-to-5000-per-second",
+      "extra_config": {
+        "qos/ratelimit/router": {
+          "max_rate": 5000
         }
-      ]
-    },
-    {
-      "endpoint": "/health",
-      "method": "GET",
+      },
       "backend": [
         {
-          "url": "https://jsonplaceholder.typicode.com/todos/1",
-          "method": "GET"
-        }
-      ]
-    },
-    {
-      "endpoint": "/dummy",
-      "method": "GET",
-      "backend": [
-        {
-          "url": "https://jsonplaceholder.typicode.com/todos/1",
-          "method": "GET"
+          "host": [
+            "https://jsonplaceholder.typicode.com/"
+          ],
+          "url_pattern": "/todos/1",
+          "extra_config": {
+            "qos/ratelimit/proxy": {
+              "max_rate": 100,
+              "capacity": 1
+            }
+          }
         }
       ]
     }
+    
   ],
   "extra_config": {
-    "logger": {
-      "level": "DEBUG"
-    }
-  }
+      "telemetry/logging": {
+        "level": "WARNING",
+        "prefix": "[KRAKEND]",
+        "stdout": true
+      }
+   }
 }

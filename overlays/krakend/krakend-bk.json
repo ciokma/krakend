@@ -1,0 +1,45 @@
+{
+    "$schema": "https://www.krakend.io/schema/v2.9/krakend.json",
+    "version": 3,
+    "endpoints": [
+    {
+        "endpoint": "/health",
+        "method": "GET",
+        "backend": [
+            {
+            "url": "https://jsonplaceholder.typicode.com/todos/1",
+            "method": "GET"
+            }
+        ]
+        },
+      {
+        "endpoint": "/limited-to-5000-per-second",
+        "extra_config": {
+          "qos/ratelimit/router": {
+            "max_rate": 5000
+          }
+        },
+        "backend": [
+          {
+            "host": [
+              "https://jsonplaceholder.typicode.com/"
+            ],
+            "url_pattern": "/todos/1",
+            "extra_config": {
+              "qos/ratelimit/proxy": {
+                "max_rate": 100,
+                "capacity": 1
+              }
+            }
+          },
+          {
+            "host": [
+              "http://fast.backend.com/"
+            ],
+            "url_pattern": "/fast/endpoint"
+          }
+        ]
+      }
+    ]
+  }
+  
