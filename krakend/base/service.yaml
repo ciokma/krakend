@@ -3,19 +3,13 @@ kind: Service
 metadata:
   name: krakend
   namespace: krakend
-  labels:
-    app.kubernetes.io/name: krakend
 spec:
   type: NodePort
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
-    - port: 8080
-      targetPort: 8080
-      protocol: TCP
-      nodePort: 30010
-  sessionAffinity: None
-  internalTrafficPolicy: Cluster
+  - name: http
+    port: 8000
+    targetPort: 8080
+    protocol: TCP
+    nodePort: 30010
   selector:
-    app.kubernetes.io/name: krakend
+    app: krakend
