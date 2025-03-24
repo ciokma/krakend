@@ -77,9 +77,9 @@
   ],
   "extra_config": {
     "telemetry/influx": {
-      "address":"http://10.109.249.231:8086",
+      "address":"http://10.109.249.230:8086",
       "ttl":"10s",
-      "buffer_size":0,
+      "buffer_size":10,
       "db":"krakend"
     }
   }
