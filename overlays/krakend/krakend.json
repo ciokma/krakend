@@ -74,56 +74,13 @@
     }
   ],
   "extra_config": {
-    "telemetry/opentelemetry": {
-      "service_name": "krakend",
-      "service_version": "1.0.0",
-      "exporters": {
-        "otlp": [
-          {
-            "name": "otel_to_influxdb",
-            "host": "otel-collector.devops-monitoring.svc.cluster.local",
-            "port": 4317,
-            "use_http": false
-          }
-        ]
-      },
-      "layers": {
-        "global": {
-          "disable_metrics": false,
-          "disable_traces": false,
-          "disable_propagation": false
-        },
-        "proxy": {
-          "disable_metrics": false,
-          "disable_traces": false
-        },
-        "backend": {
-          "metrics": {
-            "disable_stage": false,
-            "round_trip": true,
-            "read_payload": true,
-            "detailed_connection": true,
-            "static_attributes": [
-              {
-                "key": "krakend_component",
-                "value": "backend"
-              }
-            ]
-          },
-          "traces": {
-            "disable_stage": false,
-            "round_trip": true,
-            "read_payload": true,
-            "detailed_connection": true,
-            "static_attributes": [
-              {
-                "key": "krakend_component",
-                "value": "backend"
-              }
-            ]
-          }
-        }
-      }
+    "telemetry/influx": {
+      "address":"http://10.109.249.231:8086",
+      "ttl":"25s",
+      "buffer_size":0,
+      "db":"krakend",
+      "username":"",
+      "password":""
     }
   }
 }
