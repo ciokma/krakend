@@ -82,8 +82,8 @@
           {
             "name": "otel_to_influxdb",
             "host": "otel-collector.devops-monitoring.svc.cluster.local",
-            "port": 4318,
-            "use_http": true
+            "port": 4317,
+            "use_http": false
           }
         ]
       },
