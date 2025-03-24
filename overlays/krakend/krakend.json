@@ -3,6 +3,9 @@
   "version": 3,
   "name": "My KrakenD API",
   "port": 8080,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "no-op",
   "endpoints": [
     {
       "endpoint": "/limited-to-5000-per-second",
@@ -76,11 +79,9 @@
   "extra_config": {
     "telemetry/influx": {
       "address":"http://10.109.249.231:8086",
-      "ttl":"25s",
+      "ttl":"10s",
       "buffer_size":0,
-      "db":"krakend",
-      "username":"",
-      "password":""
+      "db":"krakend"
     }
   }
 }
