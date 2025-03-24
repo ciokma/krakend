@@ -82,7 +82,7 @@
           {
             "name": "otel_to_influxdb",
             "host": "http://otel-collector.devops-monitoring.svc.cluster.local",
-            "port": 4317
+            "port": 4318
           }
         ]
       },
