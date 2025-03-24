@@ -81,7 +81,7 @@
         "otlp": [
           {
             "name": "otel_to_influxdb",
-            "host": "http://otel-collector.devops-monitoring.svc.cluster.local",
+            "host": "otel-collector.devops-monitoring.svc.cluster.local",
             "port": 4318,
             "use_http": true
           }
