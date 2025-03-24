@@ -11,7 +11,12 @@
       "extra_config": {
         "qos/ratelimit/router": {
           "max_rate": 5000
+        },
+        "metrics": {
+          "enabled": true,
+          "tags": ["endpoint", "method"]
         }
+        
       },
       "backend": [
         {
