@@ -14,7 +14,7 @@ configMapGenerator:
   files:
     - krakend/krakend-config/krakend.tmpl
     - krakend/krakend-config/settings.tmpl
-    - krakend/krakend-config/telemetry.tmpl
+    - krakend/krakend-config/extra_config.tmpl
     - krakend/krakend-config/endpoints.tmpl
     - krakend/krakend-config/backends.tmpl
     - krakend/krakend-config/backends/combined.tmpl

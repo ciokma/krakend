@@ -15,5 +15,11 @@
       "enabled": true,
       "level": 6,
       "algorithms": ["gzip", "br"]
+  },
+  "circuit_breaker": {
+      "enabled": true,
+      "timeout": "500ms",
+      "max_failures": 3,
+      "half_open": "10s"
   }
 }
