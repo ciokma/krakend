@@ -5,14 +5,18 @@ namespace: krakend
 resources:
 - ../krakend/base
 
-patchesStrategicMerge:
-- krakend/deployment.yaml
+patches:
+- path: krakend/deployment.yaml
 
 configMapGenerator:
 
 - name: krakend-config
   files:
     - krakend/krakend-config/krakend.tmpl
+    - krakend/krakend-config/settings.tmpl
+    - krakend/krakend-config/telemetry.tmpl
+    - krakend/krakend-config/endpoints.tmpl
+    - krakend/krakend-config/backends.tmpl
 
 generatorOptions:
   disableNameSuffixHash: false

@@ -39,7 +39,14 @@ spec:
           value: "8080"
         - name: FC_ENABLE
           value: "1"
+        - name: FC_OUT
+          value: "salida.json"
+        - name: FC_TEMPLATES
+          value: " /etc/krakend/output.json"
+
       volumes:
       - name: krakend-config
+        emptyDir: {}
+      - name: configmap-files
         configMap:
           name: krakend-config
