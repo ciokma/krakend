@@ -9,11 +9,18 @@
         "enabled": true,
         "tags": ["endpoint", "method"]
       },
+      "circuit_breaker": {
+        "enabled": true,
+        "timeout": "500ms",
+        "max_failures": 3,
+        "half_open": "10s"
+      },
       "retries": {
-          "max": 3,
-          "timeout": "1s",
-          "retry_on": ["500", "502", "503", "504"]
-      }
+        "max": 3,
+        "timeout": "1s",
+        "retry_on": ["500", "502", "503", "504"]
+      },
+      "timeout": "2s"
     },
     "backend": [
         {
