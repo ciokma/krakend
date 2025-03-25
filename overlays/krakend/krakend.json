@@ -2,96 +2,13 @@
   "$schema": "https://www.krakend.io/schema/v2.9/krakend.json",
   "version": 3,
   "name": "My KrakenD API",
-  "port": 8080,
-  "timeout": "3000ms",
-  "cache_ttl": "300s",
+  "$ref": "config/settings.json",
+  "extra_config": {
+    "$ref": "config/telemetry.json"
+  },
   "endpoints": [
     {
-      "endpoint": "/limited-to-5000-per-second",
-      "extra_config": {
-        "qos/ratelimit/router": {
-          "max_rate": 5000
-        },
-        "metrics": {
-          "enabled": true,
-          "tags": ["endpoint", "method"]
-        }
-        
-      },
-      "backend": [
-        {
-          "host": [
-            "https://jsonplaceholder.typicode.com/"
-          ],
-          "url_pattern": "/todos/1",
-          "extra_config": {
-            "qos/ratelimit/proxy": {
-              "max_rate": 100,
-              "capacity": 1
-            }
-          }
-        }
-      ]
-    },
-    {
-      "endpoint": "/todos",
-      "method": "GET",
-      "backend": [
-        {
-          "host": [
-            "https://jsonplaceholder.typicode.com"
-          ],
-          "url_pattern": "/todos/1",
-          "method": "GET"
-        }
-      ]
-    },
-    {
-      "endpoint": "/weather",
-      "method": "GET",
-      "backend": [
-        {
-          "host": [
-            "https://api.openweathermap.org"
-          ],
-          "url_pattern": "/data/2.5/weather?q=London&appid=457fc8ee279c9c03906622cae3fd9e22",
-          "method": "GET"
-        }
-      ]
-    },
-    {
-      "endpoint": "/combined",
-      "method": "GET",
-      "backend": [
-        {
-          "host": [
-            "https://jsonplaceholder.typicode.com"
-          ],
-          "url_pattern": "/todos/1",
-          "method": "GET"
-        },
-        {
-          "host": [
-            "https://api.openweathermap.org"
-          ],
-          "url_pattern": "/data/2.5/weather?q=London&appid=457fc8ee279c9c03906622cae3fd9e22",
-          "method": "GET"
-        }
-      ]
+      "$ref": "config/endpoints.json"
     }
-  ],
-  "extra_config": {
-    "telemetry/influx":{
-          "address":"http://10.109.249.231:8086",
-          "ttl":"25s",
-          "buffer_size":0,
-          "db": "krakend",
-          "username": "",
-          "password": ""
-      },
-    "telemetry/metrics": {
-      "collection_time": "30s",
-      "listen_address": "127.0.0.1:8090"
-    }
-  }
+  ]
 }

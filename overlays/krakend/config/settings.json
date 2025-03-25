@@ -1,0 +1,5 @@
+{
+    "port": 8080,
+    "timeout": "3000ms",
+    "cache_ttl": "300s"
+  }  

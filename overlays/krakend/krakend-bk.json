@@ -3,13 +3,20 @@
   "version": 3,
   "name": "My KrakenD API",
   "port": 8080,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
   "endpoints": [
     {
       "endpoint": "/limited-to-5000-per-second",
       "extra_config": {
         "qos/ratelimit/router": {
           "max_rate": 5000
+        },
+        "metrics": {
+          "enabled": true,
+          "tags": ["endpoint", "method"]
         }
+        
       },
       "backend": [
         {
@@ -74,56 +81,17 @@
     }
   ],
   "extra_config": {
-    "telemetry/opentelemetry": {
-      "service_name": "krakend",
-      "service_version": "1.0.0",
-      "exporters": {
-        "otlp": [
-          {
-            "name": "otel_to_influxdb",
-            "host": "otel-collector.devops-monitoring.svc.cluster.local",
-            "port": 4317,
-            "use_http": false
-          }
-        ]
+    "telemetry/influx":{
+          "address":"http://10.109.249.231:8086",
+          "ttl":"25s",
+          "buffer_size":0,
+          "db": "krakend",
+          "username": "",
+          "password": ""
       },
-      "layers": {
-        "global": {
-          "disable_metrics": false,
-          "disable_traces": false,
-          "disable_propagation": false
-        },
-        "proxy": {
-          "disable_metrics": false,
-          "disable_traces": false
-        },
-        "backend": {
-          "metrics": {
-            "disable_stage": false,
-            "round_trip": true,
-            "read_payload": true,
-            "detailed_connection": true,
-            "static_attributes": [
-              {
-                "key": "krakend_component",
-                "value": "backend"
-              }
-            ]
-          },
-          "traces": {
-            "disable_stage": false,
-            "round_trip": true,
-            "read_payload": true,
-            "detailed_connection": true,
-            "static_attributes": [
-              {
-                "key": "krakend_component",
-                "value": "backend"
-              }
-            ]
-          }
-        }
-      }
+    "telemetry/metrics": {
+      "collection_time": "30s",
+      "listen_address": "127.0.0.1:8090"
     }
   }
 }
