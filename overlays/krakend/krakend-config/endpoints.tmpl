@@ -10,21 +10,21 @@
           "tags": ["endpoint", "method"]
         }
       },
-      "backend": "{{ include "backends/limited.tmpl" }}"
+      "backend": {{ include "backends/limited.tmpl" }}
     },
     {
       "endpoint": "/todos",
       "method": "GET",
-      "backend": "{{ include "backends/todos.tmpl" }}"
+      "backend": {{ include "backends/todos.tmpl" }}
     },
     {
       "endpoint": "/weather",
       "method": "GET",
-      "backend": "{{ include "backends/weather.tmpl" }}"
+      "backend": {{ include "backends/weather.tmpl" }}
     },
     {
       "endpoint": "/combined",
       "method": "GET",
-      "backend": "{{ include "backends/combined.tmpl" }}"
+      "backend": {{ include "backends/combined.tmpl" }}
     }
   ]
