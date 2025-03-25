@@ -46,7 +46,5 @@ spec:
 
       volumes:
       - name: krakend-config
-        emptyDir: {}
-      - name: configmap-files
         configMap:
           name: krakend-config
