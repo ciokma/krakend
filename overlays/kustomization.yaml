@@ -12,7 +12,7 @@ configMapGenerator:
 
 - name: krakend-config
   files:
-    - krakend/krakend.tmpl
+    - krakend/krakend-config/krakend.tmpl
 
 generatorOptions:
   disableNameSuffixHash: false
