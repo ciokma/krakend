@@ -41,8 +41,8 @@ spec:
           value: "1"
         - name: FC_OUT
           value: "salida.json"
-        - name: FC_TEMPLATES
-          value: " /etc/krakend"
+        #- name: FC_TEMPLATES
+        #  value: " /etc/krakend"
 
       volumes:
       - name: krakend-config

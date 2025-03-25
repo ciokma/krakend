@@ -2,13 +2,13 @@
   "$schema": "https://www.krakend.io/schema/v2.9/krakend.json",
   "version": 3,
   "name": "My KrakenD API",
-  "$ref": "config/settings.json",
+  "$ref": "settings.json",
   "extra_config": {
-    "$ref": "config/telemetry.json"
+    "$ref": "telemetry.json"
   },
   "endpoints": [
     {
-      "$ref": "config/endpoints.json"
+      "$ref": "endpoints.json"
     }
   ]
 }

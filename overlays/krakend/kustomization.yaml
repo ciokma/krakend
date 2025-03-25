@@ -15,6 +15,10 @@ configMapGenerator:
   - krakend-config/telemetry.tmpl
   - krakend-config/endpoints.tmpl
   - krakend-config/backends.tmpl
+  - krakend-config/backends/combined.tmpl
+  - krakend-config/backends/limited.tmpl
+  - krakend-config/backends/todos.tmpl
+  - krakend-config/backends/weather.tmpl
   name: krakend-config
 
 generatorOptions:

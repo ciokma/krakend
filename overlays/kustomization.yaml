@@ -17,6 +17,10 @@ configMapGenerator:
     - krakend/krakend-config/telemetry.tmpl
     - krakend/krakend-config/endpoints.tmpl
     - krakend/krakend-config/backends.tmpl
+    - krakend/krakend-config/backends/combined.tmpl
+    - krakend/krakend-config/backends/limited.tmpl
+    - krakend/krakend-config/backends/todos.tmpl
+    - krakend/krakend-config/backends/weather.tmpl
 
 generatorOptions:
   disableNameSuffixHash: false
