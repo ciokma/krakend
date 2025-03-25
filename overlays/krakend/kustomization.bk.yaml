@@ -10,7 +10,7 @@ patchesStrategicMerge:
 
 configMapGenerator:
 - files:
-  - krakend.tmpl
+  - krakend.json
   name: krakend-config
 
 generatorOptions:
