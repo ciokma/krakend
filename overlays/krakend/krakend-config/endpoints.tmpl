@@ -8,6 +8,11 @@
       "metrics": {
         "enabled": true,
         "tags": ["endpoint", "method"]
+      },
+      "retries": {
+          "max": 3,
+          "timeout": "1s",
+          "retry_on": ["500", "502", "503", "504"]
       }
     },
     "backend": [
