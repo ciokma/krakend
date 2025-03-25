@@ -4,6 +4,6 @@
   "name": "My KrakenD API",
   "port": 8080,
   {{ include "settings.tmpl" }},
-  "endpoints": {{ template "endpoints.tmpl" . }},
+  "endpoints": {{ include "endpoints.tmpl" }},
   "extra_config": {{ include "telemetry.tmpl" }}
 }
