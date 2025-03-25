@@ -10,21 +10,71 @@
         "tags": ["endpoint", "method"]
       }
     },
-    "backend": {{ include "/etc/krakend/limited.tmpl" }}
+    "backend": [
+        {
+          "host": [
+            "https://jsonplaceholder.typicode.com"
+          ],
+          "url_pattern": "/todos/1",
+          "method": "GET"
+        },
+        {
+          "host": [
+            "https://api.openweathermap.org"
+          ],
+          "url_pattern": "/data/2.5/weather?q=London&appid=457fc8ee279c9c03906622cae3fd9e22",
+          "method": "GET"
+        }
+      ]
+
   },
   {
     "endpoint": "/todos",
     "method": "GET",
-    "backend": {{ include "todos.tmpl" }}
+    "backend": [
+        {
+          "host": [
+            "https://jsonplaceholder.typicode.com"
+          ],
+          "url_pattern": "/todos/1",
+          "method": "GET"
+        }
+      ]
+
   },
   {
     "endpoint": "/weather",
     "method": "GET",
-    "backend": {{ include "weather.tmpl" }}
+    "backend": [
+      {
+        "host": [
+          "https://api.openweathermap.org"
+        ],
+        "url_pattern": "/data/2.5/weather?q=London&appid=457fc8ee279c9c03906622cae3fd9e22",
+        "method": "GET"
+      }
+    ]
+
   },
   {
     "endpoint": "/combined",
     "method": "GET",
-    "backend": {{ include "combined.tmpl" }}
+    "backend": [
+        {
+          "host": [
+            "https://jsonplaceholder.typicode.com"
+          ],
+          "url_pattern": "/todos/1",
+          "method": "GET"
+        },
+        {
+          "host": [
+            "https://api.openweathermap.org"
+          ],
+          "url_pattern": "/data/2.5/weather?q=London&appid=457fc8ee279c9c03906622cae3fd9e22",
+          "method": "GET"
+        }
+      ]
+
   }
 ]
