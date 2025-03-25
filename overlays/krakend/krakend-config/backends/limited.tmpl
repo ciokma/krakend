@@ -1,12 +1,14 @@
-[
-  {
-    "host": ["https://jsonplaceholder.typicode.com/"],
-    "url_pattern": "/todos/1",
-    "extra_config": {
-      "qos/ratelimit/proxy": {
-        "max_rate": 100,
-        "capacity": 1
+  [
+    {
+      "host": [
+        "https://jsonplaceholder.typicode.com/"
+      ],
+      "url_pattern": "/todos/1",
+      "extra_config": {
+        "qos/ratelimit/proxy": {
+          "max_rate": 100,
+          "capacity": 1
+        }
       }
     }
-  }
-]
+  ]
