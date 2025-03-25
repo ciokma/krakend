@@ -24,6 +24,8 @@ spec:
         volumeMounts:
         - name: krakend-config
           mountPath: /etc/krakend
+        - name: krakend-final-config
+          mountPath: /etc/krakend-final
         securityContext:
           allowPrivilegeEscalation: false
           runAsNonRoot: true
@@ -40,7 +42,7 @@ spec:
         - name: FC_ENABLE
           value: "1"
         - name: FC_OUT
-          value: "salida.json"
+          value: "/etc/krakend-final/salida.json"
         #- name: FC_TEMPLATES
         #  value: " /etc/krakend"
 
@@ -48,3 +50,5 @@ spec:
       - name: krakend-config
         configMap:
           name: krakend-config
+      - name: krakend-final-config
+        emptyDir: {}
